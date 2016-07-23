@@ -1,0 +1,22 @@
+// Initialize variables
+$color-white-max: #ffffff;
+$color-white-max-glossy: rgba(255,255,255,0.8);
+$color-gray: #d2d6de;
+$color-gray-std-dark: #333333;
+$color-gray-std-light: #dfdfdf;
+$color-red: #dd4b39;
+
+$screen-xs-max: 768px;
+$screen-sm-max: 992px;
+$screen-md-max: 1200px;
+
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+// Include modules
+
+@import '../modules/all';
+
+
+// Define default rules

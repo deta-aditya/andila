@@ -1,0 +1,134 @@
+.bs19-body-welcome {
+	background: url('../img/pattern-crossword.png');
+
+	.navbar-static-top {
+		margin-bottom: 0;
+		padding: 30px 0;
+		border: none;
+		background: transparent;
+
+		.navbar-brand {
+			font-size: 25px;
+		}
+	}
+
+	.section-title {
+		margin: 25px 0;
+		font-weight: lighter;
+		text-align: center;
+	}
+
+	#section-first {
+		margin-top: -130px;
+		padding: {
+			top: 200px;
+			bottom: 180px;
+		}
+		background-image: url('../img/bg-welcome.jpg');
+		background-size: cover;
+
+		.jumbotron {
+			padding: 0px;
+			background: transparent;
+			color: $color-white-max;
+
+			.jumbo-title {
+				margin-bottom: 20px;
+				font-size: 48px;
+				font-weight: lighter;
+			}
+
+			.jumbo-para {
+				padding-right: 30px;
+			}
+		}
+
+		.login-box {
+			margin-top: 10px;
+
+			.login-box-head {
+				padding: 20px;
+				border-bottom: 1px solid $color-gray-std-light;
+				background-color: $color-white-max-glossy;
+
+				.login-box-title {
+					margin: 0;
+					font-size: 16px;
+				}
+			}
+
+			.login-box-body {
+				background-color: $color-white-max-glossy;
+			}
+		}
+	}
+
+	#section-second {
+		padding: {
+			top: 40px;
+			bottom: 90px;
+		}
+
+		.section-title {
+			margin-bottom: 50px;
+		}
+
+		.feature-item {
+			text-align: center;
+
+			.fa {
+				background: $color-red;
+				color: $color-white-max;
+				margin: 25px 0;
+				padding: 30px;
+				font-size: 64px;
+				border-radius: 100px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+		}
+
+	}
+
+	#section-footer {
+		background-color: $color-red;
+		color: $color-white-max;
+
+		a {
+			color: $color-white-max;
+			text-decoration: underline;
+		}
+
+		.section-title {
+			margin: 30px 0;
+			font-size: 26px;
+		}
+
+		.footer-power {
+			margin: {
+				top: 50px;
+				bottom: 40px;
+			} 
+
+			.col-md-3 {
+				height: 66px;
+				white-space: nowrap;
+
+				> span {
+					height: 100%;
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		.footer-socmed {
+			margin: 0 7px;
+			font-size: 17px;
+			text-decoration: none;
+		}
+	}
+	
+}
