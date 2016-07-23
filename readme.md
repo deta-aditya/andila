@@ -1,27 +1,69 @@
-# Laravel PHP Framework
+# Aplikasi Integrasi Distribusi LPG Pertamina (Andila).
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Andila is a web application project written in PHP and developed using Laravel 5.2. It also uses MySQL as its database driver (ver. >= 5.6.24). It is mainly developed for participating in [Lomba Karya Kreatif Inovatif Universitas Pertamina](http://pertamina.com/lkkiup2016) and also as my personal portfolio.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Requirements
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Andila has the same requirements with [Laravel 5.2 server requirements](https://laravel.com/docs/5.2).
 
-## Official Documentation
+## Installation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Clone this repository and place it in your PHP server.
 
-## Contributing
+Andila uses two MySQL databases: ```indonesia``` and ```db_andila```.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### indonesia
 
-## Security Vulnerabilities
+The ```indonesia``` database is used for storing administrative information of Indonesia. It is required for geocoding over the map and storing address data.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+To install the database, simply import it to the MySQL server. The .sql can be found in the ```/database``` directory.
+
+[Source](https://github.com/edwardsamuel/Wilayah-Administratif-Indonesia).
+
+### db_andila
+
+This is the core database of Andila. Unlike the previous database, you need to migrate and seed in order to install it.
+If you don't know how to migrate and seed database in Laravel, follow these instructions:
+
+1. Create an empty database in your MySQL server. Name it ```db_andila```.
+2. Open your terminal and navigate to the cloned Andila repository.
+3. Run the command below:
+```
+php artisan migrate --seed
+```
+When it has done, you may check whether the migration process run properly by checking availability of these tables in ```db_andila```:
+```
+activities
+addresses
+agents
+attachments
+developers
+messages
+migrations
+notifications
+orders
+reports
+report_retailer
+retailers
+schedules
+stations
+subagents
+subschedules
+users
+```
+
+## Start
+
+You can start using Andila by running ```php artisan serve``` command in the repository, then access it on ```localhost:8000``` via your browser.
+
+Andila has prepared an administrator user, 5 stations, 5 agents, and 5 subagents data after the migration process. You may access all available users (attached with agents and subagents data) using their e-mail listed in the User Management panel, with the same password: ```secret```.
+
+Use this credential to access the Administrator Panel:
+```
+admin@andila.dist
+secret
+```
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+[MIT](https://github.com/purplebubblegum/andila/blob/master/license.md)
