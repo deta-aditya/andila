@@ -8,13 +8,15 @@ Andila has the same requirements with [Laravel 5.2 server requirements](https://
 
 ## Installation
 
+Clone this repository and place it in your PHP server.
+
 Andila uses two MySQL databases: ```indonesia``` and ```db_andila```.
 
 ### indonesia
 
 The ```indonesia``` database is used for storing administrative information of Indonesia. It is required for geocoding over the map and storing address data.
 
-To install the database, simply import it to the MySQL server. The .sql can be found in the ```/work/database``` directory.
+To install the database, simply import it to the MySQL server. The .sql can be found in the ```/database``` directory.
 
 [Source](https://github.com/edwardsamuel/Wilayah-Administratif-Indonesia).
 
@@ -24,7 +26,7 @@ This is the core database of Andila. Unlike the previous database, you need to m
 If you don't know how to migrate and seed database in Laravel, follow these instructions:
 
 1. Create an empty database in your MySQL server. Name it ```db_andila```.
-2. Open your terminal and enter the ```work``` directory in the cloned Andila repository.
+2. Open your terminal and navigate to the cloned Andila repository.
 3. Run the command below:
 ```
 php artisan migrate --seed
@@ -52,7 +54,7 @@ users
 
 ## Start
 
-You can start using Andila by running ```php artisan serve``` command in the ```work``` directory, then access it on ```localhost:8000``` via your browser.
+You can start using Andila by running ```php artisan serve``` command in the repository, then access it on ```localhost:8000``` via your browser.
 
 Andila has prepared an administrator user, 5 stations, 5 agents, and 5 subagents data after the migration process. You may access all available users (attached with agents and subagents data) using their e-mail listed in the User Management panel, with the same password: ```secret```.
 
@@ -61,3 +63,7 @@ Use this credential to access the Administrator Panel:
 admin@andila.dist
 secret
 ```
+
+## License
+
+[MIT](https://github.com/purplebubblegum/andila/license.md).
