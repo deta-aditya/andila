@@ -66,4 +66,4 @@ secret
 
 ## License
 
-[MIT](https://github.com/purplebubblegum/andila/license.md).
+[MIT](https://github.com/purplebubblegum/andila/blob/master/license.md)
