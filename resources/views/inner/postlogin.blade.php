@@ -7,9 +7,9 @@ Logging you in...
 @section('scripts')
 <script>
 
-setTimeout(function() {
-	andila.helper.redirect(andila.appLocation + '/dashboard');
-}, 3000);
+// setTimeout(function() {
+// 	andila.helper.redirect(andila.appLocation + '/dashboard');
+// }, 3000);
 
 </script>
 @endsection
