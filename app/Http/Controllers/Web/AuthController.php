@@ -56,7 +56,7 @@ class AuthController extends Controller
 
             $request->session()->put('weblogin', $user);
 
-            return redirect()->route('web.dashboard.index');
+            return redirect()->route('web.auth.postauth');
 
         } else {
 
@@ -65,7 +65,6 @@ class AuthController extends Controller
             ]);
             
         }
-
     }
 
     /**
@@ -81,12 +80,12 @@ class AuthController extends Controller
     }
 
     /**
-     * Show the recover password page.
+     * Show the post-auth page.
      *
      * @return \Illuminate\Http\Response
      */
-    public function recoverPassword()
+    public function postAuth()
     {
-    	
+        return view('inner.postlogin');                    	
     }
 }

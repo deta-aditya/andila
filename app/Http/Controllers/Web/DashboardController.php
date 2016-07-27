@@ -74,9 +74,10 @@ class DashboardController extends Controller
     /**
      * Show the dashboard page.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
 
     	$data = [];

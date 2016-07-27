@@ -20,6 +20,7 @@ Route::group(['namespace' => 'Web'], function () {
 		Route::get('about', 'HomeController@about')							->name('web.about');
 		Route::get('learn-more', 'HomeController@learnMore')				->name('web.learn');
 		Route::get('login', 'HomeController@login')							->name('web.login');
+		Route::get('post-login', 'AuthController@postAuth')					->name('web.auth.postauth');
 		Route::post('login', 'AuthController@login')						->name('web.auth.login');
 
 	});
