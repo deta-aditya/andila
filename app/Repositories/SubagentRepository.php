@@ -58,8 +58,10 @@ class SubagentRepository extends Repository
             ! (bool)$params['schedulable'] ?: $query->schedulable();
         }
 
-        if (auth()->user()->isAgent()) {
-            $query->ofAgent(auth()->user()->handleable->id);
+        if (auth()->check()) {
+            if (auth()->user()->isAgent()) {
+                $query->ofAgent(auth()->user()->handleable->id);
+            }
         }
 
         return $this->extractQuery($query, $params);

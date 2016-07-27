@@ -56,7 +56,7 @@ class AuthController extends Controller
 
             $request->session()->put('weblogin', $user);
 
-            return redirect()->route('web.auth.postauth');
+            return redirect()->route('web.dashboard.index');
 
         } else {
 
@@ -77,15 +77,5 @@ class AuthController extends Controller
         session()->forget('weblogin');
 
         return redirect()->route('web.home');
-    }
-
-    /**
-     * Show the post-auth page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function postAuth()
-    {
-        return view('inner.postlogin');                    	
     }
 }
