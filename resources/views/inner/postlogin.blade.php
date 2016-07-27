@@ -1,5 +1,10 @@
-Logging you in...
+@extends('layouts.app')
 
+@section('page')
+Logging you in...
+@endsection
+
+@section('scripts')
 <script>
 
 setTimeout(function() {
@@ -7,3 +12,4 @@ setTimeout(function() {
 }, 3000);
 
 </script>
+@endsection
