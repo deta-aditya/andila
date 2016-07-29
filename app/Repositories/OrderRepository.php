@@ -61,6 +61,18 @@ class OrderRepository extends Repository
             $query->scheduledBetween(explode('_', $params['range']));
         }
 
+        if (auth()->check()) {
+            if (auth()->user()->isAgent()) {
+                $query->ofAgent(auth()->user()->handleable->id);
+            }
+        }
+
+        if (session()->has('weblogin')) {
+            if (session()->get('weblogin')->isAgent()) {
+                $query->ofAgent(session()->get('weblogin')->handleable->id);
+            }
+        }
+
         return $this->extractQuery($query, $params);
     }
 

@@ -100,8 +100,8 @@ class DashboardController extends Controller
     		case 'Agent': 
 
     			$data = [
-    				'subagentCount' => $this->subagents->index(['count' => true, 'agent' => session('weblogin')->handleable->id])['count'],
-    				'orderCount' => $this->orders->index(['accepted' => true, 'agent' => session('weblogin')->handleable->id, 'count' => true])['count'],
+    				'subagentCount' => $this->subagents->index(['count' => true])['count'],
+    				'orderCount' => $this->orders->index(['count' => true])['count'],
     				'pendingSchedules' => $this->schedules->index(['ordered' => false, 'sort' => 'scheduled_date:asc'])['results'],
     			];
 
