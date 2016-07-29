@@ -120,7 +120,7 @@ var schedules = {
 			if (data.order !== null) {
 				var allocation = numeral(data.order.quantity).format('0,0');
 				var createdAt = moment(data.order.created_at).format('dddd, D MMMM YYYY H:mm:ss');
-				var acceptedAt = data.order.accepted_date ? moment(data.accepted_date).format('dddd, D MMMM YYYY') : 'Belum Diterima';
+				var acceptedAt = data.order.accepted_date ? moment(data.order.accepted_date).format('dddd, D MMMM YYYY') : 'Belum Diterima';
 			} else {
 				var allocation = createdAt = acceptedAt = andila.html.span('Belum Ada', 'text-red').prop('outerHTML');
 			}
@@ -170,7 +170,7 @@ $(function(){
 		placement: 'bottom',
 		content: function () {
 			return andila.html.div([
-				andila.html.p('Aksi ini akan memakan waktu cukup lama, serta berhati-hatilah karena aksi ini tidak dapat dipertiadakan.'),
+				andila.html.p('Aksi ini dapat memakan waktu yang cukup lama, serta berhati-hatilah karena aksi ini tidak dapat dipertiadakan.'),
 				andila.html.div(andila.html.a('#', 'Terima Pesanan', 'btn btn-sm btn-danger', 'btn-schedule-confirm-accept'), 'text-right'),
 			]);
 		}
@@ -416,7 +416,9 @@ body.on('click', '#btn-schedule-subschedules', function () {
 			andila.helper.scrollToTop();
 		}
 
-	}).fail(andila.helper.errorify);
+	}).fail(andila.helper.errorify).always(function () {
+		modalShow.modal('hide');
+	});
 
 	return false;
 

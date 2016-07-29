@@ -306,6 +306,10 @@ andila.datatable = {
 		datatable.rows('.selected').nodes().to$().removeClass('selected');
 	},
 
+	remove: function (datatable, tr) {
+		datatable.row(tr).remove().draw();
+	},
+
 }
 
 /*
@@ -450,13 +454,13 @@ andila.html = {
 	_alertHeadings: function (type) {
 		switch (type) {
 			case 'success':
-				return 'Berhasil!';
+				return ' Berhasil!';
 			case 'info':
-				return 'Informasi Penting';
+				return ' Informasi';
 			case 'warning':
-				return 'Peringatan!';
+				return ' Peringatan!';
 			case 'danger':
-				return 'Tunggu Sebentar!';
+				return ' Terjadi Kesalahan.';
 			default:
 				return '';
 		}

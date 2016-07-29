@@ -1,4 +1,3 @@
-
 @section('styles')
 <link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bootstrap.css') }}">
 @endsection
