@@ -35,6 +35,11 @@ class OrderController extends Controller
      */
     public function index()
     {
+        // Only allow agent
+        if (! session('weblogin')->isAgent()) {
+            abort(403);
+        }
+
         return view('inner.order.index');
     }
 

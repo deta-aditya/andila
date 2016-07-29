@@ -101,7 +101,7 @@
 		</div>
 		<div class="col-xs-12">
 			<button type="submit" class="btn btn-lg btn-primary"><i class="fa fa-edit" style="margin-right:10px"></i> Simpan Data</button>
-			<a href="{{ url('admin/user/'. $id) }}" class="btn btn-lg btn-link">Kembali</a>
+			<a href="{{ url()->previous() }}" class="btn btn-lg btn-link">Kembali</a>
 		</div>
 	</div>
 </form>

@@ -53,7 +53,7 @@
 		</div>
 		<div class="col-xs-12">
 			<button type="submit" class="btn btn-primary"><i class="fa fa-edit" style="margin-right:10px"></i> Ubah Data</button>
-			<a href="{{ route('web.users.index') }}" class="btn btn-link">Kembali</a>
+			<a href="{{ url()->previous() }}" class="btn btn-link">Kembali</a>
 		</div>
 	</div>
 </form>
