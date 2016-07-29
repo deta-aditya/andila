@@ -15,7 +15,7 @@ var annual = {
 
 		return andila.api.get(andila.apiLocation + '/schedules', {
 			sort: 'scheduled_date:asc',
-			limit: 999,
+			limit: 20,
 		});
 
 	},
