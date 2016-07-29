@@ -142,21 +142,21 @@ var markers = {
 			for (var station of markers.stationData) {
 				andila.gmap.markAndInfo(
 					new google.maps.LatLng(station.location[0], station.location[1]),
-					markers.createInfoString(station, 'Station')
+					markers.createInfoString(station, 'Stasiun')
 				);
 			} 
 			
 			for (var agent of markers.agentData) {
 				andila.gmap.markAndInfo(
 					new google.maps.LatLng(agent.location[0], agent.location[1]),
-					markers.createInfoString(agent, 'Agent')
+					markers.createInfoString(agent, 'Agen')
 				);
 			} 
 			
 			for (var subagent of markers.subagentData) {
 				andila.gmap.markAndInfo(
 					new google.maps.LatLng(subagent.location[0], subagent.location[1]),
-					markers.createInfoString(subagent, 'Subagent')
+					markers.createInfoString(subagent, 'Subagen')
 				);
 			} 
 
