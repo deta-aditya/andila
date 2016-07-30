@@ -35,6 +35,11 @@ class StationController extends Controller
      */
     public function index()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.station.index');
     }
 
@@ -68,6 +73,11 @@ class StationController extends Controller
      */
     public function show(Station $station)
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         $data = [ 'original' => $this->stations->show($station, [
             'agents' => 1,
         ])];
@@ -85,6 +95,11 @@ class StationController extends Controller
      */
     public function create()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.station.create');
     }
 
@@ -96,6 +111,11 @@ class StationController extends Controller
      */
     public function edit(Station $station)
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+        
         return view('inner.station.edit', ['station' => $station]);
     }
 }

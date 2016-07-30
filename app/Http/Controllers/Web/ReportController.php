@@ -105,6 +105,11 @@ class ReportController extends Controller
      */
     public function prequery(Request $request)
     {
+        // Don't allow subagent
+        if (session('weblogin')->isSubagent()) {
+            abort(403);
+        }
+
     	$data = $this->reports->index(array_merge($request->all(), [
     		'limit' => 999,
     	]));

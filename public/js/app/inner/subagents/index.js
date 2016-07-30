@@ -36,7 +36,8 @@ function fetchSubagents(res) {
 		andila.datatable.populate(datatable, [
 			data.id, data.name, data.phone, 
 			data.address.province, active,
-			data.created_at, data.updated_at
+			moment(data.created_at).format('dddd, D MMMM YYYY H:mm:ss'), 
+			moment(data.updated_at).format('dddd, D MMMM YYYY H:mm:ss')
 		]);
 	}
 

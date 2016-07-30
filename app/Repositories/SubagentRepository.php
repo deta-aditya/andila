@@ -41,8 +41,10 @@ class SubagentRepository extends Repository
         $query = $this->select(Subagent::with('user', 'address'), $params, false);
 
         // This is only restricted to admin LOL sorry
-        if ( array_has($params, 'agent') && auth()->user()->isAdmin() ) {
-            $query->ofAgent($params['agent']);
+        if ( array_has($params, 'agent') && auth()->check() ) {
+            if (auth()->user()->isAdmin()) {
+                $query->ofAgent($params['agent']);
+            }
         }
 
         if ( array_has($params, 'contract_value') ) {
@@ -58,8 +60,16 @@ class SubagentRepository extends Repository
             ! (bool)$params['schedulable'] ?: $query->schedulable();
         }
 
-        if (auth()->user()->isAgent()) {
-            $query->ofAgent(auth()->user()->handleable->id);
+        if (auth()->check()) {
+            if (auth()->user()->isAgent()) {
+                $query->ofAgent(auth()->user()->handleable->id);
+            }
+        }
+
+        if (session()->has('weblogin')) {
+            if (session()->get('weblogin')->isAgent()) {
+                $query->ofAgent(session()->get('weblogin')->handleable->id);
+            }
         }
 
         return $this->extractQuery($query, $params);

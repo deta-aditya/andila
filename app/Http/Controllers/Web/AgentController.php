@@ -35,6 +35,11 @@ class AgentController extends Controller
      */
     public function index()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.agent.index');
     }
 
@@ -68,6 +73,11 @@ class AgentController extends Controller
      */
     public function show(Agent $agent)
     {
+        // Only allow admin and agent that has the same id
+        if (session('weblogin')->isSubagent() || (session('weblogin')->isAgent() && session('weblogin')->handleable->id !== $agent->id)) {
+            abort(403);
+        }
+
         $data = [ 'original' => $this->agents->show($agent, []) ];
 
         $data['agent'] = $data['original']['model'];
@@ -83,6 +93,11 @@ class AgentController extends Controller
      */
     public function create()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.agent.create');
     }
 
@@ -94,6 +109,11 @@ class AgentController extends Controller
      */
     public function edit(Agent $agent)
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+        
         return view('inner.agent.edit', ['agent' => $agent]);
     }
 }

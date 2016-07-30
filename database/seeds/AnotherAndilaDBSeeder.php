@@ -2,6 +2,7 @@
 
 use App\Models\Station;
 use App\Models\Agent;
+use App\Models\Subagent;
 use App\Models\Address;
 use App\Models\User;
 use Illuminate\Database\Seeder;

@@ -13,7 +13,7 @@ window.andila = {};
 
 andila.version = 0.1;
 andila.devUsername = 'super';
-andila.devApiToken = '2c1f4144804500c068528a0d73cfaf78';
+andila.devApiToken = '43a2fda888814e8aacd6b2302db44020';
 andila.csrfToken = $('meta[name="csrf-token"]').attr('content');
 andila.appLocation = $('meta[name="app-location"]').attr('content');
 andila.apiLocation = $('meta[name="api-location"]').attr('content');
@@ -306,6 +306,10 @@ andila.datatable = {
 		datatable.rows('.selected').nodes().to$().removeClass('selected');
 	},
 
+	remove: function (datatable, tr) {
+		datatable.row(tr).remove().draw();
+	},
+
 }
 
 /*
@@ -450,13 +454,13 @@ andila.html = {
 	_alertHeadings: function (type) {
 		switch (type) {
 			case 'success':
-				return 'Berhasil!';
+				return ' Berhasil!';
 			case 'info':
-				return 'Informasi Penting';
+				return ' Informasi';
 			case 'warning':
-				return 'Peringatan!';
+				return ' Peringatan!';
 			case 'danger':
-				return 'Tunggu Sebentar!';
+				return ' Terjadi Kesalahan.';
 			default:
 				return '';
 		}
