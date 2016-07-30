@@ -154,10 +154,13 @@ class ReconstructAndilaDb extends Migration
         Schema::drop('orders');
         Schema::drop('subschedules');
         Schema::drop('reports');
-        Schema::drop('report_retailers');
+        Schema::drop('report_retailer');
         Schema::drop('retailers');
         Schema::drop('activities');
         Schema::drop('notifications');
+
+        // Rename "subagents" table
+        Schema::rename('subagents', 'stands');
 
         // Edit "stations" table
         Schema::table('stations', function (Blueprint $table) {
@@ -180,8 +183,5 @@ class ReconstructAndilaDb extends Migration
             $table->renameColumn('priority', 'importance');
             $table->dropColumn('read_at');
         });
-
-        // Rename "subagents" table
-        Schema::rename('subagents', 'stands');
     }
 }

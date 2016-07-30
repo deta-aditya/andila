@@ -27,7 +27,7 @@ class ChangeStarredToImportanceInMessageTable extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             $table->renameColumn('importance', 'starred');
-            $table->boolean('starred')->default(0)->change();
+            $table->boolean('importance')->default(0)->change();
         });
     }
 }

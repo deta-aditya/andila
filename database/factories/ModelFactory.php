@@ -22,7 +22,7 @@ $factory->define(App\Models\Station::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
         'phone' => $faker->phoneNumber,
-        'location' => $faker->latitude .','. $faker->longitude,
+        'location' => [$faker->latitude, $faker->longitude],
         'type' => $faker->randomElement(['SPPBE', 'SPPEK', 'SPBU']),
     ];
 });
@@ -33,7 +33,7 @@ $factory->define(App\Models\Agent::class, function (Faker\Generator $faker) {
         'email' => $faker->companyEmail,
         'phone' => $faker->phoneNumber,
         'owner' => $faker->name,
-        'location' => $faker->latitude .','. $faker->longitude,
+        'location' => [$faker->latitude, $faker->longitude],
         'active' => (int)$faker->boolean(70),
     ];
 });
@@ -49,7 +49,7 @@ $factory->define(App\Models\Subagent::class, function (Faker\Generator $faker) {
         'email' => $faker->companyEmail,
         'phone' => $faker->phoneNumber,
         'owner' => $faker->name,
-        'location' => $faker->latitude .','. $faker->longitude,
+        'location' => [$faker->latitude, $faker->longitude],
         'contract_value' => $faker->numberBetween(50, 200),
         'active' => (int)$faker->boolean(70),
     ];
