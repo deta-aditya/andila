@@ -46,6 +46,11 @@ class SubagentController extends Controller
      */
     public function index()
     {
+        // Don't allow subagent
+        if (session('weblogin')->isSubagent()) {
+            abort(403);
+        }
+
         return view('inner.subagent.index');
     }
 
@@ -79,6 +84,14 @@ class SubagentController extends Controller
      */
     public function show(Subagent $subagent)
     {
+        // Only allow admin, agent that supervises, and subagent with the same id
+        if (
+            (session('weblogin')->isAgent() && session('weblogin')->handleable->id !== $subagent->agent->id) ||
+            (session('weblogin')->isSubagent() && session('weblogin')->handleable->id !== $subagent->id)
+        ) {
+            abort(403);
+        }
+
         $data = [ 'original' => $this->subagents->show($subagent, ['agent' => 1]) ];
 
         $data['subagent'] = $data['original']['model'];
@@ -94,6 +107,11 @@ class SubagentController extends Controller
      */
     public function create()
     {
+        // Don't allow subagent
+        if (session('weblogin')->isSubagent()) {
+            abort(403);
+        }
+
         return view('inner.subagent.create', ['agents' => $this->agents->index([
             'fields' => 'id,name',
             'active' => true,
@@ -108,6 +126,11 @@ class SubagentController extends Controller
      */
     public function edit(Subagent $subagent)
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+        
         return view('inner.subagent.edit', ['subagent' => $subagent, 'agents' => $this->agents->index([
             'fields' => 'id,name',
             'active' => true,

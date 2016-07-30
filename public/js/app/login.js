@@ -23,12 +23,9 @@ body.on('submit', '#form-login', function() {
 
 			andila.html.btnSuccess(submit);
 		})
-		.fail(function (xhr) {
-			var data = {errors: xhr.responseText};
-			andila.helper.redirect(redirect, data);
-
+		.fail([andila.helper.errorify, function () {
 			andila.html.btnRepeat(submit);
-		});
+		}]);
 
 	return false;
 })

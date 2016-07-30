@@ -136,7 +136,7 @@ body.on('click', '#btn-order-create', function () {
 		modalCreate.find('.schedule-station').text(res.model.station.name);
 		modalCreate.find('.schedule-agent').text(res.model.agent.name);
 		modalCreate.find('.schedule-scheduled-date').text(res.model.scheduled_date);
-		modalCreate.find('.schedule-quantity b').text(contractValue);
+		modalCreate.find('.schedule-quantity b').text(numeral(contractValue).format('0,0') + ' Tabung');
 		modalCreate.find('[type="submit"]').attr('data-id', id);
 
 		modalShow.modal('hide');
