@@ -15,6 +15,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
+    	// Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.schedule.index');
     }
 }

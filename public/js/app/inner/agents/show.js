@@ -201,7 +201,7 @@ var schedules = {
 
 		var previousMonth = null;
 
-		// It is so painful to thik about this
+		// It is so painful to think about this
 		// logic so please don't violate :(
 		for (var id in schedules.data) {
 			

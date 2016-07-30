@@ -28,14 +28,20 @@
 				<h3 class="profile-username text-center">{{ $agent->name }}</h3>
 				<p class="text-muted text-center">Agen</p>
 
-				@if($user->isAdmin()) 
 				<div class="btn-group btn-group-justified">
-					<a href="{{ route('web.agents.edit', $agent->id) }}" class="btn btn-default"><i class="fa fa-edit" style="margin-right:5px"></i>Ubah</a>	
+					
+					@if($user->isAgent() && $user->handleable->id === $agent->id)
+					<a href="{{ route('web.users.edit', $user->id) }}" class="btn btn-default"><i class="fa fa-edit" style="margin-right:5px"></i>Ubah Profil</a>
+					@endif
+
+					@if($user->isAdmin())
+					<a href="{{ route('web.agents.edit', $agent->id) }}" class="btn btn-default"><i class="fa fa-edit" style="margin-right:5px"></i>Ubah</a>
 					<a href="#modal-agent-delete" id="btn-agent-delete" class="btn btn-default" data-toggle="modal" title="Hapus Agen?">
 						<i class="fa fa-trash" style="margin-right:5px"></i>Hapus
 					</a>
+					@endif
+
 				</div>
-				@endif
 
 			</div>
 		</div>
@@ -82,8 +88,16 @@
 								<td>{{ $agent->email }}</td>
 							</tr>
 							<tr>
+								<th>E-mail Pengguna</th>
+								<td>{{ $agent->user ? $agent->user->email : 'Tidak Ada' }}</td>
+							</tr>
+							<tr>
 								<th>No. Telepon</th>
 								<td>{{ $agent->phone }}</td>
+							</tr>
+							<tr>
+								<th>Pemilik</th>
+								<td>{{ $agent->owner }}</td>
 							</tr>
 							<tr>
 								<th>Kuota/Bulan</th>

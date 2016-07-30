@@ -34,6 +34,11 @@ class SubscheduleController extends Controller
      */
     public function index()
     {
+        // Only allow agent
+        if (! session('weblogin')->isAgent()) {
+            abort(403);
+        }
+        
         return view('inner.subschedule.index');
     }
 }

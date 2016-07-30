@@ -65,7 +65,6 @@ class AuthController extends Controller
             ]);
             
         }
-
     }
 
     /**
@@ -78,15 +77,5 @@ class AuthController extends Controller
         session()->forget('weblogin');
 
         return redirect()->route('web.home');
-    }
-
-    /**
-     * Show the recover password page.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function recoverPassword()
-    {
-    	
     }
 }

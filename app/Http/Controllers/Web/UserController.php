@@ -16,6 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.user.index');
     }
 
@@ -35,7 +40,11 @@ class UserController extends Controller
         	session()->flash('success', 'Pengguna "'. User::find($request->get('put'))->email .'" telah berhasil diubah!');
         }
 
-        return redirect()->route('web.users.index');
+        if (session('weblogin')->isAdmin()) {
+            return redirect()->route('web.users.index');
+        } else {
+            return redirect()->route('web.'. strtolower(session('weblogin')->handling . 's') .'.show', session('weblogin')->handleable->id);
+        }
     }
 
     /**
@@ -45,6 +54,11 @@ class UserController extends Controller
      */
     public function create()
     {
+        // Only allow admin
+        if (! session('weblogin')->isAdmin()) {
+            abort(403);
+        }
+
         return view('inner.user.create');
     }
 
@@ -56,6 +70,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        // Only allow admin and user with the same id
+        if (! session('weblogin')->isAdmin() && session('weblogin')->id !== $user->id) {
+            abort(403);
+        }
+
         return view('inner.user.edit', ['user_edit' => $user]);
     }
 }

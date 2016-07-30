@@ -29,12 +29,18 @@
 				<p class="text-muted text-center">Subagen</p>
 
 				<div class="btn-group btn-group-justified">
+
+					@if($user->isSubagent() && $user->handleable->id === $subagent->id)
+					<a href="{{ route('web.users.edit', $user->id) }}" class="btn btn-default"><i class="fa fa-edit" style="margin-right:5px"></i>Ubah Profil</a>
+					@endif
+
 					@if ($user->isAdmin())
 					<a href="{{ route('web.subagents.edit', $subagent->id) }}" class="btn btn-default"><i class="fa fa-edit" style="margin-right:5px"></i>Ubah</a>
 					<a href="#modal-subagent-delete" id="btn-subagent-delete" class="btn btn-default" data-toggle="modal" title="Hapus Subagen?">
 						<i class="fa fa-trash" style="margin-right:5px"></i>Hapus
 					</a>
 					@endif
+
 				</div>
 			</div>
 		</div>
@@ -86,6 +92,10 @@
 							<tr>
 								<th>E-mail Subagen</th>
 								<td>{{ $subagent->email }}</td>
+							</tr>
+							<tr>
+								<th>E-mail Pengguna</th>
+								<td>{{ $subagent->user ? $subagent->user->email : 'Tidak Ada' }}</td>
 							</tr>
 							<tr>
 								<th>No. Telepon</th>
