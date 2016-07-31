@@ -1,0 +1,75 @@
+.docs-box {
+  margin-top: 20px;
+
+  a {
+    color: $color-red;
+  }
+
+  .box-header {
+    padding: 30px 20px;
+
+    .box-title {
+      padding: 8px 0;
+      font-size: 18pt;
+      display: block;
+    }
+  }
+
+  .docs-nav {
+
+    border-right: 1px solid $color-gray-std-lighter;
+    border-radius: 0px;
+
+    %border-active {
+      border-left-color: $color-red;
+    }
+
+    %background-active {
+      color: $color-red;
+      background: transparent;
+    }
+
+    & > li {
+      border-bottom: none;
+    }
+
+    & > li > a {
+      padding: 5px 10px;
+    }
+
+    & > li.active > a {
+      @extend %border-active;
+    }
+
+    & > li.active > a:focus {
+      @extend %background-active;
+    }  
+  }
+
+  .docs-content {
+    padding: 20px;
+
+    p {
+      font-size: 11pt;
+    }
+
+    img {
+      margin: 20px 0;
+    }
+
+    .alert {
+      a {
+        color: $color-white-max;
+      }
+    }
+  }
+
+  .docs-bookmarks {
+    
+    & > li::before {
+      content: '#';
+      margin-right: 10px;
+    }
+
+  }
+}

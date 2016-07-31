@@ -14,36 +14,42 @@
       	<div class="navbar-custom-menu">
         	<ul class="nav navbar-nav">
 
-          		<!-- User -->
-          		<li class="dropdown user user-menu">
-          			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          			<img src="{{ asset('img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-	          			<span class="hidden-xs">{{ $user->email }}</span>
-	          		</a>
-      					<ul class="dropdown-menu">
+            <li>
+              <a href="{{ route('web.docs.read', [strtolower($user->handling), 'overview']) }}" data-toggle="tooltip" data-placement="bottom" title="Panduan">
+                <i class="fa fa-question-circle"></i>
+              </a>
+            </li>
 
-      						<li class="user-header">
-      							<img src="{{ asset('img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
-      							<p>
-      								{{ $user->email }}
-      								<small>{{ $user->handling }}</small>
-      							</p>
-      						</li>
+        		<!-- User -->
+        		<li class="dropdown user user-menu">
+        			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          			<img src="{{ asset('img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+          			<span class="hidden-xs">{{ $user->email }}</span>
+          		</a>
+    					<ul class="dropdown-menu">
 
-      						<li class="user-body">
-      							<div class="row">
-      								<a href="@unless($user->isAdmin()) {{ route('web.'. strtolower($user->handling). 's.show', $user->handleable->id) }} @else {{ url('#') }}  @endunless" class="col-xs-6 text-center">
-      									Profil
-      								</a>
-      								<a href="{{ route('web.auth.logout') }}" class="col-xs-6 text-center">
-      									Logout
-      								</a>
-      							</div>
-      						</li>
+    						<li class="user-header">
+    							<img src="{{ asset('img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+    							<p>
+    								{{ $user->email }}
+    								<small>{{ $user->handling }}</small>
+    							</p>
+    						</li>
 
-      					</ul>
-          		</li>		
-          		<!-- /User -->
+    						<li class="user-body">
+    							<div class="row">
+    								<a href="@unless($user->isAdmin()) {{ route('web.'. strtolower($user->handling). 's.show', $user->handleable->id) }} @else {{ url('#') }}  @endunless" class="col-xs-6 text-center">
+    									Profil
+    								</a>
+    								<a href="{{ route('web.auth.logout') }}" class="col-xs-6 text-center">
+    									Logout
+    								</a>
+    							</div>
+    						</li>
+
+    					</ul>
+        		</li>		
+        		<!-- /User -->
 
           		<!-- Control >
           		<li>

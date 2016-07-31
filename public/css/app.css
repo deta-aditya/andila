@@ -1,3 +1,6 @@
+.docs-item-container .docs-item {
+  text-align: center; }
+
 .box .overlay p {
   width: 100%;
   font-size: 20pt;
@@ -47,6 +50,54 @@
   .jumbotron-about .lead {
     margin-top: 25px;
     margin-bottom: 0; }
+
+.docs-item-container {
+  margin: 70px 0 140px; }
+  .docs-item-container .docs-item {
+    transition: 0.4s; }
+    .docs-item-container .docs-item .box-header {
+      background-color: #dd4b39;
+      color: #ffffff; }
+      .docs-item-container .docs-item .box-header .fa {
+        margin-bottom: 10px;
+        font-size: 48pt;
+        display: block; }
+    .docs-item-container .docs-item:hover {
+      transform: scale(1.05, 1.05); }
+
+.docs-box {
+  margin-top: 20px; }
+  .docs-box a {
+    color: #dd4b39; }
+  .docs-box .box-header {
+    padding: 30px 20px; }
+    .docs-box .box-header .box-title {
+      padding: 8px 0;
+      font-size: 18pt;
+      display: block; }
+  .docs-box .docs-nav {
+    border-right: 1px solid #f4f4f4;
+    border-radius: 0px; }
+    .docs-box .docs-nav > li.active > a {
+      border-left-color: #dd4b39; }
+    .docs-box .docs-nav > li.active > a:focus {
+      color: #dd4b39;
+      background: transparent; }
+    .docs-box .docs-nav > li {
+      border-bottom: none; }
+    .docs-box .docs-nav > li > a {
+      padding: 5px 10px; }
+  .docs-box .docs-content {
+    padding: 20px; }
+    .docs-box .docs-content p {
+      font-size: 11pt; }
+    .docs-box .docs-content img {
+      margin: 20px 0; }
+    .docs-box .docs-content .alert a {
+      color: #ffffff; }
+  .docs-box .docs-bookmarks > li::before {
+    content: '#';
+    margin-right: 10px; }
 
 .bs19-body-welcome {
   background: url("../img/pattern-crossword.png"); }

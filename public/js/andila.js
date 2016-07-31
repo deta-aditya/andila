@@ -13,7 +13,8 @@ window.andila = {};
 
 andila.version = 0.1;
 andila.devUsername = 'super';
-andila.devApiToken = '43a2fda888814e8aacd6b2302db44020';
+andila.devApiToken = '2c1f4144804500c068528a0d73cfaf78';
+// andila.devApiToken = '43a2fda888814e8aacd6b2302db44020';
 andila.csrfToken = $('meta[name="csrf-token"]').attr('content');
 andila.appLocation = $('meta[name="app-location"]').attr('content');
 andila.apiLocation = $('meta[name="api-location"]').attr('content');

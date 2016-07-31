@@ -13,14 +13,17 @@
 
 Route::group(['namespace' => 'Web'], function () {
 	
-	Route::group(['middleware' => 'guest'], function () {
+	Route::get('docs/{category}/{page}', 'DocsController@read')   	    ->name('web.docs.read');
+    
+    Route::group(['middleware' => 'guest'], function () {
 
-		Route::get('/', 'HomeController@root')								->name('web.default');
-		Route::get('home', 'HomeController@welcome')						->name('web.home');
-		Route::get('about', 'HomeController@about')							->name('web.about');
-		Route::get('learn-more', 'HomeController@learnMore')				->name('web.learn');
-		Route::get('login', 'HomeController@login')							->name('web.login');
-		Route::post('login', 'AuthController@login')						->name('web.auth.login');
+        Route::get('/', 'HomeController@root')                              ->name('web.default');
+        Route::get('home', 'HomeController@welcome')                        ->name('web.home');
+        Route::get('about', 'HomeController@about')                         ->name('web.about');
+        Route::get('login', 'HomeController@login')                         ->name('web.login');
+        Route::post('login', 'AuthController@login')                        ->name('web.auth.login');
+
+        Route::get('docs/index', 'DocsController@index')                    ->name('web.docs.index');
 
 	});
 

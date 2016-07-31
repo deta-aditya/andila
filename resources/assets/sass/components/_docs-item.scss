@@ -1,0 +1,23 @@
+.docs-item-container {
+  margin: 70px 0 140px;
+
+  .docs-item {
+    @extend %text-center;
+    @include smooth(0.4s);
+
+    .box-header {
+      background-color: $color-red;
+      color: $color-white-max;
+
+      .fa {
+        margin-bottom: 10px;
+        font-size: 48pt;
+        display: block;
+      }
+    }
+
+    &:hover {
+      @include scale(1.05, 1.05);
+    }
+  }
+}

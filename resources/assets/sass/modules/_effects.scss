@@ -1,0 +1,7 @@
+@mixin smooth($duration) {
+  transition: $duration;
+}
+
+@mixin scale($x, $y) {
+  transform: scale($x, $y);
+}

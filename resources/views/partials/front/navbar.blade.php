@@ -20,11 +20,17 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                @if(Request::is('about'))
+                @unless(Request::is('home'))
                 <li><a href="{{ route('web.home') }}">Beranda</a></li>
-                @else
+                @endunless
+                
+                @unless(Request::is('about'))
                 <li><a href="{{ route('web.about') }}">Tentang</a></li>
-                @endif
+                @endunless
+                
+                @unless(Request::is('docs/index'))
+                <li><a href="{{ route('web.docs.index') }}">Panduan</a></li>
+                @endunless
             </ul>
         </div>
     </div>

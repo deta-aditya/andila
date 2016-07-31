@@ -10,7 +10,7 @@
         <input type="hidden" name="_redirect" value="{{ route('web.auth.login') }}">
 
         <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="email" placeholder="Nama Pengguna" required>
+            <input type="text" class="form-control" name="email" placeholder="Nama Pengguna/E-mail" required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
